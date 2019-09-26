@@ -1,0 +1,75 @@
+---
+layout: post
+title: conversions
+catogories: C#
+---
+
+Cuboid volume calculator:
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp3
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            
+            int numbertext= -1; 
+            int numbertwo = -1;  
+            int numberthree = -1; 
+            //assigns numbers 
+
+            
+            Console.WriteLine("enter the height"); // asks user to enter height of cuboid 
+            while (numbertext == -1) // sets while loop for no numbers entered 
+            {
+                try
+                {
+                    numbertext = Convert.ToInt32(Console.ReadLine()); // converts string input to number 
+                }
+                catch
+                {
+                    Console.WriteLine("you have not entered a number, please enter a number");
+                }
+            } // checks that a number is in the 32 bit and is an integer, and repeats if not 
+            Console.WriteLine("enter the width");
+            while (numbertwo == -1)
+            {
+                try
+                {
+                    numbertwo= Convert.ToInt32(Console.ReadLine());
+                }
+                catch
+                {
+                    Console.WriteLine("you have not entered a number,or you haven't entered a whole number, please enter a number");
+                }
+            }
+            Console.WriteLine("enter the length");
+            while (numberthree < 0 )
+            {
+                try
+                {
+                    numberthree = Convert.ToInt32(Console.ReadLine());
+                    if(numberthree < 0)
+                    {
+                        throw new Exception(); 
+                    }
+                   
+                }
+                catch
+                {
+                    Console.WriteLine("you have not entered a number,or you haven't entered a whole number, please enter a positive number");
+                }
+            }
+            int numberfour = numbertext * numbertwo * numberthree;
+            Console.WriteLine("the cuboid's volume is " + numberfour + " centimetres cubed");
+            Console.ReadLine();
+            //calculates the volume and outputs the result 
+        }
+    }
+}
